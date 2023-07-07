@@ -5,7 +5,7 @@ namespace CalculadoraDeInteiros
     public partial class Form1 : Form
     {
         public int resultado, numtemp;
-        public string operacao;
+        public string operacao = " ";
 
         public Form1()
         {
@@ -15,13 +15,41 @@ namespace CalculadoraDeInteiros
         private void DigitaNumero(int num)
         {
             numtemp = (numtemp * 10) + num;
+            displayer.Text = numtemp.ToString();
         }
         private void digiteOperacao(string operador)
         {
+            if (operacao.Length > 0)
+            {
+                CalculaResultado();
+            }else
+            {
+                resultado = numtemp;
+            }
             resultado = numtemp;
             numtemp = 0;
             operacao = operador;
         }
+        private void CalculaResultado()
+        {
+            switch (operacao)
+            {
+                case "+":
+                    resultado = resultado + numtemp;
+                    break;
+                case "-":
+                    resultado = resultado - numtemp;
+                    break;
+                case "*":
+                    resultado = resultado * numtemp;
+                    break;
+                case "/":
+                    resultado = resultado / numtemp;
+                    break;
+            }
+            displayer.Text = resultado.ToString();
+        }
+        
         private void button6_Click(object sender, EventArgs e)
         {
             DigitaNumero(1);
@@ -73,19 +101,13 @@ namespace CalculadoraDeInteiros
             DigitaNumero(0);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void Btm_resultado_Click(object sender, EventArgs e)
         {
-            numtemp = (numtemp * 10) + num;
-
-        }
-
-        private void btm_resultado_Click(object sender, EventArgs e)
-        {
-            switch (numtemp)
-            {
-                case '+':
-
-            }
+            CalculaResultado();
+            
+            resultado = 0;
+            numtemp = 0;
+            operacao = "";
         }
 
         private void btm_soma_Click(object sender, EventArgs e)

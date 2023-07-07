@@ -37,7 +37,7 @@
             button8 = new Button();
             button9 = new Button();
             button1 = new Button();
-            textBox1 = new TextBox();
+            displayer = new TextBox();
             btm_soma = new Button();
             btm_menos = new Button();
             btm_divisao = new Button();
@@ -145,13 +145,12 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // textBox1
+            // displayer
             // 
-            textBox1.Location = new Point(218, 94);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(325, 31);
-            textBox1.TabIndex = 15;
-            textBox1.TextChanged += textBox1_TextChanged;
+            displayer.Location = new Point(218, 94);
+            displayer.Name = "displayer";
+            displayer.Size = new Size(325, 31);
+            displayer.TabIndex = 15;
             // 
             // btm_soma
             // 
@@ -206,7 +205,7 @@
             btm_resultado.TabIndex = 20;
             btm_resultado.Text = "=";
             btm_resultado.UseVisualStyleBackColor = false;
-            btm_resultado.Click += btm_resultado_Click;
+            btm_resultado.Click += Btm_resultado_Click;
             // 
             // button15
             // 
@@ -231,7 +230,7 @@
             Controls.Add(btm_divisao);
             Controls.Add(btm_menos);
             Controls.Add(btm_soma);
-            Controls.Add(textBox1);
+            Controls.Add(displayer);
             Controls.Add(button1);
             Controls.Add(button9);
             Controls.Add(button8);
@@ -257,7 +256,7 @@
         private Button button8;
         private Button button9;
         private Button button1;
-        private TextBox textBox1;
+        private TextBox displayer;
         private Button btm_soma;
         private Button btm_menos;
         private Button btm_divisao;
